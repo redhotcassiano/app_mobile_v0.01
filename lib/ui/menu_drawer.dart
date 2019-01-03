@@ -45,18 +45,11 @@ class MenuDrawer extends StatelessWidget{
               )
             ),
             ListTile(
-              title: Text('Entrar'),
+              title: Text('Dashboard'),
               onTap: () {
                 Navigator.push(context, new MaterialPageRoute(builder: (ctxt) => new LoginPage()));
               },
-            ),
-            ListTile(
-              title: Text('Item 2'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-              },
-            ),
+            )
           ],
         ),
       );

@@ -8,6 +8,8 @@ class Colors {
 
   static const Color loginGradientStart = const Color(0xFFf0db80);
   static const Color loginGradientEnd = const Color(0xFFff8650);
+  static const Color fontWhite = const Color(0xFFFFFFFF);
+  static const Color fontBlack = const Color(0xFF000000);
 
   static const primaryGradient = const LinearGradient(
     colors: const [loginGradientStart, loginGradientEnd],

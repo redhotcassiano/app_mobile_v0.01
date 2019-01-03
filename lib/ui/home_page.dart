@@ -4,16 +4,14 @@ import 'package:app_mobile/ui/home_list.dart';
 
 class HomePage extends StatelessWidget {
   @override
-  Widget build (BuildContext context) {      
-    
+  Widget build (BuildContext context) {    
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("Home"),
         backgroundColor: Colors.deepOrange,
       ),      
       drawer: MenuDrawer(),      
-      body: HomePageBody()
-      
+      body: HomePageBody()      
     );
   }
 }

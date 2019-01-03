@@ -1,5 +1,8 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:app_mobile/models/consult.dart';
+import 'package:app_mobile/utils/routes.dart';
+import 'package:app_mobile/style/theme.dart' as Theme;
 
 class ListConsultRow extends StatelessWidget {
   final Consult consult;
@@ -7,13 +10,13 @@ class ListConsultRow extends StatelessWidget {
   ListConsultRow(this.consult);
   
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
 
     //Inicio do Card;
     final consultCard = new Container(
       margin: const EdgeInsets.only(left: 5.0, right: 5.0),
       decoration: new BoxDecoration(
-        color: Color.fromRGBO(210, 56, 255, 1),
+        color: Theme.Colors.fontWhite,
         shape: BoxShape.rectangle,
         borderRadius: new BorderRadius.circular(8.0),
         boxShadow: <BoxShadow>[
@@ -28,15 +31,15 @@ class ListConsultRow extends StatelessWidget {
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            new Text(consult.name),
-            new Text(consult.location),
+            new Text(consult.nome, style: TextStyle(color: Theme.Colors.fontBlack, fontSize: 20.0)),
+            new Text(consult.razaosocial),
             new Container(
               color: const Color(0xFF00C6FF),
-              width: 24.0,
+              width: 190.0,
               height: 1.0,
               margin: const EdgeInsets.symmetric(vertical: 8.0)
             ),
-            new Row(
+            /* new Row(
               children: <Widget>[
                 new Icon(Icons.location_on, size: 14.0,
                   color: Colors.white),
@@ -48,21 +51,18 @@ class ListConsultRow extends StatelessWidget {
                 new Text(
                   consult.gravity),
               ],
-            )
+            ) */
           ],
         ),
       ),
-);
-
+    );
     //Fim do Card;
-
 
     return new Container(
       height: 120.0,
       margin: const EdgeInsets.only(top: 16.0, bottom: 8.0),
       child: new FlatButton(
         onPressed: () => _navigateTo(context, consult.id),
-
         child: new Stack(
           children: <Widget>[
             consultCard,
@@ -73,7 +73,11 @@ class ListConsultRow extends StatelessWidget {
   }
 
   _navigateTo(context, String id) {
-    print(id);
+    Routes.navigateTo(
+      context,
+      '/detail/${consult.id}',
+      transition: TransitionType.inFromRight
+    );
   }
 
 }
